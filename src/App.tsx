@@ -1,11 +1,21 @@
 import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import {AppThemeProvider} from '@context/AppTheme';
+import {WeatherForecast} from '@screens';
+
+const AppStyles = StyleSheet.create({
+  containerStyle: {
+    flex: 1,
+  },
+});
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <Text>Hello World</Text>
-    </SafeAreaView>
+    <AppThemeProvider>
+      <SafeAreaView style={AppStyles.containerStyle}>
+        <WeatherForecast />
+      </SafeAreaView>
+    </AppThemeProvider>
   );
 };
 
