@@ -1,4 +1,4 @@
-package com.weathershowcase.newarchitecture;
+package br.com.dinossour.weathershowcase.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.weathershowcase.BuildConfig;
-import com.weathershowcase.newarchitecture.components.MainComponentsRegistry;
-import com.weathershowcase.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import br.com.dinossour.weathershowcase.BuildConfig;
+import br.com.dinossour.weathershowcase.newarchitecture.components.MainComponentsRegistry;
+import br.com.dinossour.weathershowcase.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.weathershowcase.newarchitecture.components;
+package br.com.dinossour.weathershowcase.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

@@ -1,4 +1,4 @@
-package com.weathershowcase;
+package br.com.dinossour.weathershowcase;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
