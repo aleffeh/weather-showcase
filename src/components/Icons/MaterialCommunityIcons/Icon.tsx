@@ -4,7 +4,7 @@ import MaterialCommunityIconsGlyphs from 'react-native-vector-icons/glyphmaps/Ma
 import React from 'react';
 import {ColorValue} from 'react-native';
 
-interface TypedIconProps {
+export interface TypedIconProps {
   iconName: string | keyof typeof MaterialCommunityIconsGlyphs;
   iconColor?: ColorValue | number;
   iconSize?: number;
