@@ -35,7 +35,7 @@ export const IconContainer = styled(View)<{lightIcon?: boolean}>`
   background-color: ${props => getContainerBgColor(props)};
   padding: 2px;
   margin: 2px;
-  border-radius: 13px;
+  border-radius: 24px;
 `;
 
 export const LightModeIcon = styled(Icon).attrs(props => ({

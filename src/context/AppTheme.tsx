@@ -2,6 +2,7 @@ import React from 'react';
 import {useApplicationTheme} from '@hooks/index';
 import {ThemeProvider} from 'styled-components';
 import {DarkTheme, LightTheme} from '@themes';
+import {StatusBar} from 'react-native';
 
 interface AppThemeContext {
   isDarkTheme: boolean;
@@ -24,6 +25,10 @@ const AppThemeProvider: React.FC = ({children}) => {
 
   return (
     <AppThemeContext.Provider value={{isDarkTheme, toggleTheme}}>
+      <StatusBar
+        barStyle={isDarkTheme ? 'light-content' : 'dark-content'}
+        backgroundColor={isDarkTheme ? DarkTheme.bgColor : LightTheme.bgColor}
+      />
       <ThemeProvider theme={() => getThemeData()}>{children}</ThemeProvider>
     </AppThemeContext.Provider>
   );
