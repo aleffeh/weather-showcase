@@ -1,7 +1,9 @@
-import {ApplicationBaseTheme} from './ApplicationBaseTheme';
+import {ApplicationBaseTheme, BaseTheme} from './ApplicationBaseTheme';
 
-const LightTheme: ApplicationBaseTheme = {
-  bgColor: '#d9d9d9',
+const LightTheme = <ApplicationBaseTheme>{
+  bgColor: '#fff',
+  textColor: '#383838',
+  worldMapColor: '#f4f4f4',
 };
 
-export default LightTheme;
+export default {...Object.assign(BaseTheme, LightTheme)};
