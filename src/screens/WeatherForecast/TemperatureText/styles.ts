@@ -8,11 +8,11 @@ export const Container = styled.View`
 
 export const TemperatureText = styled(ThemedText)`
   font-weight: bold;
-  font-size: 72px;
+  font-size: 86px;
 `;
 
 export const Celcius = styled.View`
-  margin-top: 22px;
+  margin-top: 28px;
   margin-left: 2px;
   width: 12px;
   height: 12px;

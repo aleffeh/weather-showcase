@@ -6,12 +6,11 @@ export const Container = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
 `;
 
 export const ForecastImage = styled(Image).attrs({
   resizeMode: 'contain',
-})`
-  width: 156px;
-  height: 156px;
+})<{size?: number}>`
+  width: ${props => props.size ?? 156}px;
+  height: ${props => props.size ?? 156}px;
 `;
