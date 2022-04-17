@@ -11,13 +11,13 @@ export const Container = styled(Pressable)`
   align-items: center;
   max-width: 56px;
   border-radius: 20px;
-  border: 2px solid ${p => p.theme.neutralColor};
+  border: 1px solid ${p => p.theme.neutralColor};
 `;
 
 const getContainerBgColor = (props: any) => {
   if (props.theme === DarkTheme) {
     if (props.lightIcon) {
-      return 'undefined';
+      return 'transparent';
     } else {
       return props.theme.accentColor;
     }
@@ -26,7 +26,7 @@ const getContainerBgColor = (props: any) => {
     if (props.lightIcon) {
       return props.theme.accentColor;
     } else {
-      return 'undefined';
+      return 'transparent';
     }
   }
 };
@@ -35,7 +35,7 @@ export const IconContainer = styled(View)<{lightIcon?: boolean}>`
   background-color: ${props => getContainerBgColor(props)};
   padding: 2px;
   margin: 2px;
-  border-radius: 24px;
+  border-radius: 26px;
 `;
 
 export const LightModeIcon = styled(Icon).attrs(props => ({

@@ -1,7 +1,21 @@
 import React from 'react';
-import {Container, Header} from './styles';
+import {
+  Container,
+  Content,
+  Header,
+  LastUpdateContainer,
+  LastUpdateText,
+  WeatherContainer,
+  WeatherForecastText,
+} from './styles';
 
-import {ThemeSwitcher, TimeAndLocation} from '@components';
+import {
+  ThemeSwitcher,
+  TimeAndLocation,
+  WeatherIcon,
+  WorldMap,
+} from '@components';
+import {Temperature} from '@screens/WeatherForecast/TemperatureText/Temperature';
 
 const WeatherForecast: React.FC = () => {
   return (
@@ -13,6 +27,17 @@ const WeatherForecast: React.FC = () => {
         />
         <ThemeSwitcher />
       </Header>
+      <Content>
+        <WorldMap />
+        <WeatherContainer>
+          <LastUpdateContainer>
+            <LastUpdateText>Atualizado há 10 minutos</LastUpdateText>
+          </LastUpdateContainer>
+          <WeatherIcon icon={'04d'} />
+          <WeatherForecastText>Thunder</WeatherForecastText>
+          <Temperature temperature={'13'} />
+        </WeatherContainer>
+      </Content>
     </Container>
   );
 };

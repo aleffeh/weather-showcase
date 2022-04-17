@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import {ThemedText} from '@components';
+import {ThemedText} from '@components/ThemedText/styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {DarkTheme} from '@themes';
 

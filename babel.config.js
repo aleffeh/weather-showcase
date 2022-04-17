@@ -12,6 +12,7 @@ module.exports = {
           '@screens': './src/screens',
           '@themes': './src/themes',
           '@components': './src/components',
+          '@assets': './src/assets',
         },
       },
     ],
