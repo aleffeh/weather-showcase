@@ -1,6 +1,6 @@
 # Weather Showcase
 
-### [🚀 Download the v1.0.0-pre APK](https://github.com/aleffeh/weather-showcase/releases/download/1.0.0-pre/app-release.apk "Download the latest APK")
+### [🚀 Download the v1.0.0-pre APK](https://github.com/aleffeh/weather-showcase/releases "Download the latest APK")
 
 ## Next Steps:
 
