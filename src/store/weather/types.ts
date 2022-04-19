@@ -1,5 +1,3 @@
-import {Location} from '@services';
-
 export interface WeatherState {
   lastUpdate: string | undefined;
   currentWeather: CurrentWeather | undefined;
@@ -25,4 +23,9 @@ export interface HourlyForecast {
   dt: string;
   temp: number;
   weather: Weather;
+}
+
+export interface Location {
+  lat: number;
+  lon: number;
 }

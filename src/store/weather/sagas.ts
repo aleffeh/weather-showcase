@@ -6,9 +6,10 @@ import {
   getWeatherForecastSuccess,
 } from './reducer';
 import HttpService from '../../services/HttpService';
-import {api, Location, LocationProvider} from '@services';
-import {CurrentWeather, HourlyForecast} from '@store/weather/types';
+import {api} from '@services';
+import {CurrentWeather, HourlyForecast, Location} from '@store/weather/types';
 import {isoCountry} from 'iso-country';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function* getCurrentWeather(location: Location) {
   const currentWeather = yield HttpService.get(
@@ -45,7 +46,8 @@ function* getDailyForecast(location: Location) {
 }
 
 function* getWeatherForecast() {
-  const location: Location = yield LocationProvider.getCurrentLocation();
+  const jsonLoc = yield AsyncStorage.getItem('last_location');
+  const location: Location = yield JSON.parse(jsonLoc);
   yield getCurrentWeather(location);
   yield getDailyForecast(location);
   yield put(setLastUpdate());

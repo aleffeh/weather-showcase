@@ -11,7 +11,7 @@ module.exports = (async () => {
       inlineRequires: true,
     },
     resolver: {
-      assetExts: assetExts.filter(ext => ext !== 'svg' || ext !== 'png'),
+      assetExts: assetExts.filter(ext => ext !== 'svg'),
       sourceExts: [...sourceExts, 'svg'],
     },
   };
