@@ -3,7 +3,7 @@ import {Container, ForecastImage} from './styles';
 import {icons, WeatherIconsType} from '@components/WeatherIcon/IconsMap';
 
 export interface WeatherIconProps {
-  icon: WeatherIconsType;
+  icon: WeatherIconsType | string;
   size?: number;
 }
 

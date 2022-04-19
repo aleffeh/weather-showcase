@@ -1,3 +1,5 @@
+import {tron} from '../../ReactotronConfig';
+
 declare module '*.svg' {
   import React from 'react';
   import {SvgProps} from 'react-native-svg';
@@ -8,4 +10,10 @@ declare module '*.svg' {
 declare module '*.png' {
   const value: import('react-native').ImageSourcePropType;
   export default value;
+}
+
+declare global {
+  interface Console {
+    tron: typeof tron;
+  }
 }

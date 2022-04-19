@@ -11,3 +11,4 @@ if (settings.hasProperty("newArchEnabled") && settings.newArchEnabled == "true")
 ext.vectoricons = [
     iconFontNames: [ "MaterialIcons.ttf", "MaterialCommunityIcons.ttf" ] // Name of the font files you want to copy
 ]
+
