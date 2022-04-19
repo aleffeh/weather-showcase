@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   Container,
   Content,
@@ -21,47 +21,67 @@ import {
 import {Temperature} from '@screens/WeatherForecast/TemperatureText/Temperature';
 import {HourlyForecast} from '@screens/WeatherForecast/HourlyForecast/HourlyForecast';
 import {TouchableOpacity} from 'react-native';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useFormatedDate,
+  useMinutesSinceUpdate,
+} from '@hooks';
+import {updateWeatherForecast} from '@store/weather';
 
 const WeatherForecast: React.FC = () => {
+  const state = useAppSelector(store => store.weather);
+
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(updateWeatherForecast());
+  }, [dispatch]);
+
+  const formatedDate = useFormatedDate(new Date());
+  const refreshMinutes = useMinutesSinceUpdate(state.lastUpdate);
+
   return (
     <Container>
       <Header>
         <TimeAndLocation
-          currentDateTime={'22, Feb 2021'}
-          currentLocation={'Uchoa, Brazil'}
+          currentDateTime={formatedDate}
+          currentLocation={`${state.currentWeather?.city}, ${state.currentWeather?.country}`}
         />
         <ThemeSwitcher />
       </Header>
       <Content>
         <WorldMap />
         <WeatherContainer>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity
+            onPress={() => {
+              dispatch(updateWeatherForecast());
+            }}>
             <LastUpdateContainer>
               <ReloadIcon />
-              <LastUpdateText>Atualizado há 10 minutos</LastUpdateText>
+              <LastUpdateText>
+                Atualizado há {refreshMinutes} minutos
+              </LastUpdateText>
             </LastUpdateContainer>
           </TouchableOpacity>
-          <WeatherIcon icon={'04d'} />
-          <WeatherForecastText>Thunder</WeatherForecastText>
-          <Temperature temperature={'13'} />
+          <WeatherIcon icon={state.currentWeather?.weather.icon ?? '50n'} />
+          <WeatherForecastText>
+            {state.currentWeather?.weather.main}
+          </WeatherForecastText>
+          <Temperature
+            temperature={state.currentWeather?.temperature.toFixed() ?? ''}
+          />
         </WeatherContainer>
       </Content>
       <Footer>
         <HourlyForecastsContainer>
           <HourlyForecast
-            forecastTime={'1:00 pm'}
-            temperature={'15'}
-            weatherIcon={'10n'}
+            forecast={state.weatherForecast && state.weatherForecast[3]}
           />
           <HourlyForecast
-            forecastTime={'5:30 pm'}
-            temperature={'10'}
-            weatherIcon={'02d'}
+            forecast={state.weatherForecast && state.weatherForecast[6]}
           />
           <HourlyForecast
-            forecastTime={'18:00 am'}
-            temperature={'15'}
-            weatherIcon={'11d'}
+            forecast={state.weatherForecast && state.weatherForecast[12]}
           />
         </HourlyForecastsContainer>
       </Footer>

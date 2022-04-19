@@ -3,11 +3,11 @@
   "compilerOptions": {
     "target": "esnext",
     "lib": ["ESNext"],
-    "allowJs": false,
+    "allowJs": true,
     "jsx": "react-native",
     "removeComments": true,
     "noEmit": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "strict": true,
     "plugins": [
       {
@@ -26,12 +26,15 @@
       "@themes/*": ["./src/themes/*"],
       "@components/*": ["./src/components/*"],
       "@assets/*": ["./src/assets/*"],
+      "@store/*": ["./src/store/*"],
       "@context": ["./src/context"],
       "@hooks": ["./src/hooks"],
       "@screens": ["./src/screens"],
       "@themes": ["./src/themes"],
       "@components": ["./src/components"],
-      "@assets": ["./src/assets"]
+      "@assets": ["./src/assets"],
+      "@store": ["./src/store"],
+      "@services": ["./src/services"]
     },
     "typeRoots": [ "./src/declarations"],
     "allowSyntheticDefaultImports": true,
