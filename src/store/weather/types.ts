@@ -3,6 +3,7 @@ export interface WeatherState {
   currentWeather: CurrentWeather | undefined;
   weatherForecast: HourlyForecast[] | undefined;
   isLoading: boolean;
+  hasError: boolean;
 }
 
 export interface Weather {

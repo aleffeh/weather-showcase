@@ -28,6 +28,7 @@ import {
   useMinutesSinceUpdate,
 } from '@hooks';
 import {updateWeatherForecast} from '@store/weather';
+import {LocationErrorBoundary} from './LocationErrorBoundary/LocationErrorBoundary';
 
 const WeatherForecast: React.FC = () => {
   const state = useAppSelector(store => store.weather);
@@ -42,6 +43,7 @@ const WeatherForecast: React.FC = () => {
 
   return (
     <Container>
+      <LocationErrorBoundary />
       <Header>
         <TimeAndLocation
           currentDateTime={formatedDate}

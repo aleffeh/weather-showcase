@@ -4,12 +4,12 @@ import {
   setLastUpdate,
   updateWeatherForecast,
   getWeatherForecastSuccess,
+  getLocationError,
 } from './reducer';
 import HttpService from '../../services/HttpService';
-import {api} from '@services';
+import {api, LocationService} from '@services';
 import {CurrentWeather, HourlyForecast, Location} from '@store/weather/types';
 import {isoCountry} from 'iso-country';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function* getCurrentWeather(location: Location) {
   const currentWeather = yield HttpService.get(
@@ -46,11 +46,14 @@ function* getDailyForecast(location: Location) {
 }
 
 function* getWeatherForecast() {
-  const jsonLoc = yield AsyncStorage.getItem('last_location');
-  const location: Location = yield JSON.parse(jsonLoc);
-  yield getCurrentWeather(location);
-  yield getDailyForecast(location);
-  yield put(setLastUpdate());
+  try {
+    const location: Location = yield LocationService.getCurrentLocation();
+    yield getCurrentWeather(location);
+    yield getDailyForecast(location);
+    yield put(setLastUpdate());
+  } catch (error) {
+    yield put(getLocationError());
+  }
 }
 
 export function* weatherSagas() {
